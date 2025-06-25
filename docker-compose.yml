@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  bge:
+    build: .
+    image: bge-embedding-project
+    volumes:
+      - ./embeddings:/app
+    working_dir: /app
+    tty: true
+    stdin_open: true
+    entrypoint: ["/bin/bash"] 
