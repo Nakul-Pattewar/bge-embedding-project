@@ -1,3 +1,4 @@
+import os
 import sys
 from embedding_utils import BGEEmbedder
 from sklearn.metrics.pairwise import cosine_similarity
@@ -38,7 +39,7 @@ def serve_query(embedding_file, user_query, top_k=3):
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python test.py [index|query] [optional: query_text]")
+        print("Usage: python test.py query \"your question here\"")
         sys.exit(1)
     mode = sys.argv[1]
     if mode == "index":
@@ -49,6 +50,11 @@ if __name__ == "__main__":
             print("Please provide a query string.")
             sys.exit(1)
         user_query = sys.argv[2]
+        # Check if embeddings exist, if not, build them
+        if not os.path.exists(EMBEDDING_FILE):
+            print("Embeddings not found. Generating embeddings first...")
+            texts = get_example_texts()
+            build_and_save_index(texts, EMBEDDING_FILE)
         serve_query(EMBEDDING_FILE, user_query, top_k=3)
     else:
         print("Unknown mode. Use 'index' or 'query'.") 
