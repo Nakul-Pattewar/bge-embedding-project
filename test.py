@@ -3,8 +3,7 @@ import sys
 from embedding_utils import BGEEmbedder
 from sklearn.metrics.pairwise import cosine_similarity
 
-EMBEDDING_FILE = "sample_embeddings.json"
-
+EMBEDDING_FILE = "embeddings/sample_embeddings.json"
 # Example texts for indexing
 def get_example_texts():
     return [

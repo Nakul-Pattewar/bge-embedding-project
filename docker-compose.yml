@@ -4,7 +4,7 @@ services:
     build: .
     image: bge-embedding-project
     volumes:
-      - ./embeddings:/app
+      - ./embeddings:/app/embeddings
     working_dir: /app
     tty: true
     stdin_open: true
