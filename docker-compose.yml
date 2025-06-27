@@ -7,4 +7,10 @@ services:
       - ./hf_cache:/root/.cache/huggingface/hub
     working_dir: /app
     ports:
-      - "8000:8000" 
+      - "8000:8000"
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'      # Limit to 2 CPU cores
+        reservations:
+          cpus: '1.0'      # Reserve 1 CPU core 
