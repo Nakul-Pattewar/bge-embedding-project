@@ -11,5 +11,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the code
 COPY . .
 
-# Default command (can be overridden)
-ENTRYPOINT ["python", "test.py"] 
+# Start FastAPI server on container start
+ENTRYPOINT ["uvicorn", "api.embedding_api:app", "--host", "0.0.0.0", "--port", "8000"] 
