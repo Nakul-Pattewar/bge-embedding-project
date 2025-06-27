@@ -4,6 +4,7 @@ services:
     image: bge-embedding-project
     volumes:
       - ./embeddings:/app/embeddings
+      - ./hf_cache:/root/.cache/huggingface/hub
     working_dir: /app
     ports:
       - "8000:8000" 

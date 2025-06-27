@@ -7,7 +7,7 @@ def get_query_embedding(query: str) -> np.ndarray:
     model_name = "BAAI/bge-large-en-v1.5"
 
     print(f"Loading {model_name}...")
-    model = SentenceTransformer(model_name)
+    model = SentenceTransformer(model_name, cache_folder=None, local_files_only=True)
         
     print("Model loaded successfully!")
     embedding = model.encode([query])
