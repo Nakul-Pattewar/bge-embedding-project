@@ -15,7 +15,7 @@ class BGEEmbedder:
         self.model_name = model_name
         print("Model loaded successfully!")
     
-    def encode_texts(self, texts: List[str]) -> np.ndarray:
+    def encode_texts(self, texts: List[str]) -> np.ndarray: 
         """Convert texts to embeddings"""
         if isinstance(texts, str):
             texts = [texts]
